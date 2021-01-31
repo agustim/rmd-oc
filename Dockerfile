@@ -96,5 +96,10 @@ RUN apt-get update \
 
 RUN Rscript -e 'install.packages(c("rmarkdown","flexdashboard","plotly"))'
 
+WORKDIR /workspace
 
-CMD ["bash"]
+VOLUME ["/workspace"]
+
+ENTRYPOINT [ "/usr/bin/Rscript" ]
+
+CMD ["-e", "rmarkdown::render(\"index.Rmd\",output_format=\"html_document\")"]
