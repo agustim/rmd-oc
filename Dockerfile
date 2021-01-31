@@ -96,9 +96,9 @@ RUN apt-get update \
 
 RUN Rscript -e 'install.packages(c("rmarkdown","flexdashboard","plotly"))'
 
-WORKDIR /github/workspace
+# WORKDIR /github/workspace
 
-VOLUME ["/github/workspace"]
+# VOLUME ["/github/workspace"]
 
 ENTRYPOINT [ "/usr/bin/Rscript" ]
 
