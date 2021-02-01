@@ -102,4 +102,4 @@ VOLUME ["/github/workspace"]
 
 ENTRYPOINT [ "/usr/bin/Rscript" ]
 
-CMD ["-e", "rmarkdown::render(\"index.Rmd\",output_format=\"html_document\")"]
+CMD ["-e", "rmarkdown::render_site()"]
