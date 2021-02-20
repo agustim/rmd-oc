@@ -94,7 +94,7 @@ RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
                 libssl-dev  \libcurl4-openssl-dev
 
-RUN Rscript -e 'install.packages(c("rmarkdown","flexdashboard","plotly","lubridate","htmltools","RColorBrewer"))'
+RUN Rscript -e 'install.packages(c("rmarkdown","flexdashboard","plotly","lubridate","htmltools","RColorBrewer","jsonlite","httr"))'
 
 WORKDIR /github/workspace
 
