@@ -1,6 +1,6 @@
 ## Emacs, make this -*- mode: sh; -*-
 
-FROM debian:testing
+FROM debian:testing-20210111
 
 LABEL org.label-schema.license="GPL-2.0" \
       org.label-schema.vcs-url="https://localhost" \
