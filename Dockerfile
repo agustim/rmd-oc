@@ -92,7 +92,10 @@ RUN apt-get update \
 
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
-                libssl-dev  \
+                libssl-dev 
+
+RUN apt-get update \
+	&& apt-get install -y --no-install-recommends \
                 libcurl4-openssl-dev
 
 RUN Rscript -e 'install.packages(c("rmarkdown","flexdashboard","plotly","lubridate","htmltools","RColorBrewer","jsonlite","httr"))'
