@@ -108,6 +108,7 @@ RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
                 curl
 
+COPY ./tools/kreport-dl /usr/bin/
 
 WORKDIR /github/workspace
 
