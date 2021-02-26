@@ -104,6 +104,11 @@ RUN apt-get update \
 
 RUN Rscript -e 'install.packages(c("rmarkdown","flexdashboard","plotly","lubridate","htmltools","RColorBrewer","jsonlite","httr","tidyverse","DT","aws.s3","crypto"))'
 
+RUN apt-get update \
+	&& apt-get install -y --no-install-recommends \
+                curl
+
+
 WORKDIR /github/workspace
 
 VOLUME ["/github/workspace"]
