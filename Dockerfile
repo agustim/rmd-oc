@@ -102,7 +102,7 @@ RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
                 libxml2-dev
 
-RUN Rscript -e 'install.packages(c("rmarkdown","flexdashboard","plotly","lubridate","htmltools","RColorBrewer","jsonlite","httr","tidyverse","DT","aws.s3","crypto"))'
+RUN Rscript -e 'install.packages(c("rmarkdown","flexdashboard","plotly","lubridate","htmltools","RColorBrewer","jsonlite","httr","tidyverse","DT","aws.s3","crypto","downloadthis","crosstalk","leaflet"))'
 
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
