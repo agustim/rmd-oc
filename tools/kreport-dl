@@ -54,15 +54,45 @@ fi
 
 
 # Descarreguem el fitxer
-curl -s ${HOSTNAME_SUGAR}'index.php?action=Login&module=Users&login_module=Home&login_action=index' \
-  -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9' \
+#curl -s ${HOSTNAME_SUGAR}'index.php?action=Login&module=Users&login_module=Home&login_action=index' \
+#  -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9' \
+#  -c /tmp/cookies.txt \
+#  --output /dev/null
+
+#curl -s ${HOSTNAME_SUGAR}'index.php' \
+#  -H 'Content-Type: application/x-www-form-urlencoded' \
+#  -H 'Referer: '${HOSTNAME_SUGAR}'index.php?action=Login&module=Users&login_module=Home&login_action=index' \
+#  --data-raw 'module=Users&action=Authenticate&return_module=Users&return_action=Login&cant_login=&login_module=Home&login_action=index&login_record=&login_token=&login_oauth_token=&login_mobile=&login_language=ca_ES&user_name='${SINERGIA_USER}'&user_password='${SINERGIA_PASSWORD}'&Login=Login' \
+#  -b /tmp/cookies.txt -c /tmp/cookies.txt \
+#  --output /dev/null
+
+#curl -s ${HOSTNAME_SUGAR}'index.php?module=Home&action=index' \
+#  -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9' \
+#  -b /tmp/cookies.txt -c /tmp/cookies.txt \
+#  --output /dev/null
+
+#curl ${HOSTNAME_SUGAR}'index.php' \
+#  -b /tmp/cookies.txt \
+#  -H 'Content-Type: application/x-www-form-urlencoded' \
+#  -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36' \
+#  -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9' \
+#  -H 'Referer: '${HOSTNAME_SUGAR}'index.php?module=KReports&return_module=KReports&action=DetailView&record='${KREPORT_ID} \
+#  -H 'Accept-Language: ca-ES,ca;q=0.9' \
+#  --data-raw 'module=KReports&record='${KREPORT_ID}'&return_action=DetailView&return_module=KReports&return_id=&module_tab=&isDuplicate=false&offset=1&action=export_to_csv&sugar_body_only=&to_pdf=on' \
+#  --compressed \
+#  --output ${OUTPUT_FILE}
+
+
+# Descarreguem el fitxer v2
+curl -s ${HOSTNAME_SUGAR} 'index.php?module=Users&action=Login' \
+  -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9' \
   -c /tmp/cookies.txt \
   --output /dev/null
 
 curl -s ${HOSTNAME_SUGAR}'index.php' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
-  -H 'Referer: '${HOSTNAME_SUGAR}'index.php?action=Login&module=Users&login_module=Home&login_action=index' \
-  --data-raw 'module=Users&action=Authenticate&return_module=Users&return_action=Login&cant_login=&login_module=Home&login_action=index&login_record=&login_token=&login_oauth_token=&login_mobile=&login_language=ca_ES&user_name='${SINERGIA_USER}'&user_password='${SINERGIA_PASSWORD}'&Login=Login' \
+  -H 'Referer: '${HOSTNAME_SUGAR}'index.php?module=Users&action=Login' \
+  --data-raw 'module=Users&action=Authenticate&return_module=Users&return_action=Login&cant_login=&login_module=&login_action=&login_record=&login_token=&login_oauth_token=&login_mobile=&login_language=ca_ES&user_name='${SINERGIA_USER}'&username_password='${SINERGIA_PASSWORD}'&Login=Login' \
   -b /tmp/cookies.txt -c /tmp/cookies.txt \
   --output /dev/null
 
@@ -78,6 +108,6 @@ curl ${HOSTNAME_SUGAR}'index.php' \
   -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9' \
   -H 'Referer: '${HOSTNAME_SUGAR}'index.php?module=KReports&return_module=KReports&action=DetailView&record='${KREPORT_ID} \
   -H 'Accept-Language: ca-ES,ca;q=0.9' \
-  --data-raw 'module=KReports&record='${KREPORT_ID}'&return_action=DetailView&return_module=KReports&return_id=&module_tab=&isDuplicate=false&offset=1&action=export_to_csv&sugar_body_only=&to_pdf=on' \
+  --data-raw 'module=KReports&record='${KREPORT_ID}'&return_action=DetailView&return_module=KReports&return_id=&module_tab=&isDuplicate=false&offset=3&action=export_to_csv&sugar_body_only=&to_pdf=on' \
   --compressed \
   --output ${OUTPUT_FILE}
